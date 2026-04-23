@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don Quixote - The Coolest Book Ever</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", "Arial", sans-serif;
+            background-color: #ffffcc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border: 3px solid #ff6600;
+        }
+        header {
+            background: linear-gradient(to bottom, #ff6600, #ff9900);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 5px solid #cc3300;
+        }
+        h1 {
+            margin: 0;
+            font-size: 42px;
+            text-shadow: 2px 2px #cc3300;
+        }
+        .subtitle {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        nav {
+            background: #cc3300;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #ffff00;
+        }
+        .section {
+            padding: 20px;
+            border-bottom: 2px dashed #ff9900;
+        }
+        h2 {
+            color: #cc3300;
+            border-bottom: 3px solid #ff9900;
+            padding-bottom: 5px;
+            font-size: 28px;
+        }
+        .story-map {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .map-box {
+            background: #e6f2ff;
+            border: 2px solid #0066cc;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        .map-box h3 {
+            color: #0066cc;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .character {
+            background: #ffe6e6;
+            margin: 8px 0;
+            padding: 8px;
+            border-left: 4px solid #cc0000;
+            border-radius: 5px;
+        }
+        .character-name {
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .plot-diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            border: 3px solid #666;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+        .plot-part {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .exposition { background: #ccffcc; border-left: 6px solid #009900; }
+        .rising { background: #ffffcc; border-left: 6px solid #ffcc00; }
+        .climax { background: #ffcccc; border-left: 6px solid #cc0000; font-weight: bold; }
+        .falling { background: #ffcc99; border-left: 6px solid #ff6600; }
+        .resolution { background: #ccccff; border-left: 6px solid #6600cc; }
+        
+        .plot-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .exposition .plot-title { color: #009900; }
+        .rising .plot-title { color: #cc9900; }
+        .climax .plot-title { color: #cc0000; font-size: 22px; }
+        .falling .plot-title { color: #cc6600; }
+        .resolution .plot-title { color: #6600cc; }
+        
+        .conflict-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .conflict-list li {
+            background: white;
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ffcc00;
+            border-radius: 5px;
+        }
+        .conflict-list li::before {
+            content: "⚔️ ";
+        }
+        .timeline {
+            background: #fff8dc;
+            border: 2px solid #daa520;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        .timeline-item {
+            margin: 10px 0;
+            padding: 8px;
+            background: white;
+            border-left: 3px solid #daa520;
+            padding-left: 15px;
+        }
+        .timeline-item strong {
+            color: #b8860b;
+        }
+        .quote-box {
+            background: #000;
+            color: #0f0;
+            font-family: "Courier New", monospace;
+            padding: 15px;
+            border: 2px solid #0f0;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+        .fun-fact {
+            background: #e6ffe6;
+            border: 2px solid #00cc00;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .fun-fact::before {
+            content: "💡 FUN FACT: ";
+            font-weight: bold;
+            color: #009900;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .marquee {
+            background: #cc0000;
+            color: yellow;
+            padding: 5px;
+            font-weight: bold;
+        }
+        .highlight {
+            background: yellow;
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚔️ DON QUIXOTE ⚔️</h1>
+            <div class="subtitle">By Miguel de Cervantes | The Greatest Book Ever Written</div>
+            <div style="font-size: 14px; margin-top: 5px;">Published 1605 & 1615 | Over 900 pages of AWESOME</div>
+        </header>
+        
+        <div class="marquee">
+            🐴 FOLLOW THE ADVENTURES OF THE MAN WHO THOUGHT WINDMILLS WERE GIANTS!! 🐴
+        </div>
+        
+        <nav>
+            <a href="#story-map">Story Map</a>
+            <a href="#plot">Plot Diagram</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#themes">Themes</a>
+        </nav>
+
+        <div class="section" id="story-map">
+            <h2>🗺️ STORY MAP</h2>
+            <p>Everything you need to know before (or while) reading this epic masterpiece!</p>
+            
+            <div class="story-map">
+                <div class="map-box">
+                    <h3>👥 MAIN CHARACTERS</h3>
+                    <div class="character">
+                        <span class="character-name">Don Quixote (Alonso Quixano)</span><br>
+                        A 50-year-old man who reads too many knight books, goes crazy, and decides to become a wandering knight. He's idealistic, brave, and totally delusional. Known as "The Knight of the Sorrowful Countenance."
+                    </div>
+                    <div class="character">
+                        <span class="character-name">Sancho Panza</span><br>
+                        Don Quixote's chubby, practical peasant squire. He rides a donkey named Dapple and just wants to get paid and eat well. Surprisingly wise despite being "simple."
+                    </div>
+                    <div class="character">
+                        <span class="character-name">Dulcinea del Toboso</span><br>
+                        Don Quixote's "lady love" — actually just a farm girl named Aldonza Lorenzo who has NO idea he exists. He imagines her as a beautiful princess.
+                    </div>
+                    <div class="character">
+                        <span class="character-name">Rocinante</span><br>
+                        Don Quixote's super skinny, old horse. Name means "formerly a nag, now a charger."
+                    </div>
+                </div>
+                
+                <div class="map-box">
+                    <h3>🌍 SETTINGS</h3>
+                    <p><strong>La Mancha, Spain</strong> — The dry, flat homeland of our hero.</p>
+                    <p><strong>The Spanish Countryside</strong> — Roads, inns (which he thinks are castles), windmills, and mountains.</p>
+                    <p><strong>Sierra Morena</strong> — Mountains where Don Quixote hides and does "penance" for Dulcinea.</p>
+                    <p><strong>The Duke & Duchess's Castle</strong> — Where rich people play cruel pranks on him in Part 2.</p>
+                    <p><strong>Barcelona</strong> — The final city where everything comes crashing down.</p>
+                    <br>
+                    <h3>📚 GENRE</h3>
+                    <p>Mock-heroic novel / Satire / Adventure / Tragicomedy</p>
+                </div>
+                
+                <div class="map-box">
+                    <h3>🎭 THEMES</h3>
+                    <p><strong>Idealism vs. Reality</strong> — Don Quixote sees the world as it SHOULD be, not as it IS. Windmills become giants; inns become castles.</p>
+                    <p><strong>Madness vs. Sanity</strong> — Is Don Quixote crazy, or is the world crazy for NOT being idealistic?</p>
+                    <p><strong>Honor & Chivalry</strong> — Old-fashioned values that don't fit in the modern world anymore.</p>
+                    <p><strong>Class vs. Worth</strong> — Sancho the peasant is often wiser than rich nobles.</p>
+                    <p><strong>Power of Books</strong> — Reading too much can literally drive you insane!</p>
+                </div>
+                
+                <div class="map-box">
+                    <h3>🎯 WHY READ THIS?</h3>
+                    <ul>
+                        <li>It's considered the FIRST modern novel ever written!</li>
+                        <li>Hilarious but also deeply sad</li>
+                        <li>Sancho Panza is the best sidekick in literature</li>
+                        <li>Invented the word "quixotic" (idealistic but impractical)</li>
+                        <li>The "Man of La Mancha" musical is based on it</li>
+                        <li>It's about imagination, dreams, and what happens when reality hits</li>
+                        <li>Part 2 is actually a sequel written 10 years later!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="fun-fact">
+                The book was so popular that someone wrote a FAKE Part 2 before Cervantes could finish his real one! Cervantes actually wrote his characters reacting to the fake book in his REAL Part 2. Meta before meta was cool!
+            </div>
+        </div>
+
+        <div class="section" id="plot">
+            <h2>📈 PLOT DIAGRAM</h2>
+            <p>The full story arc from madness to death:</p>
+            
+            <div class="plot-diagram">
+                <div class="plot-part exposition">
+                    <div class="plot-title">📖 EXPOSITION</div>
+                    <p><strong>Alonso Quixano</strong> is a middle-aged man from La Mancha who becomes OBSESSED with reading books about chivalry and knights. He reads so much that he <span class="highlight">loses his grip on reality</span>. He sells his land to buy more books, then decides to become a knight himself. He renames himself <strong>Don Quixote de la Mancha</strong>, finds some rusty armor, and picks a random farm girl (Aldonza Lorenzo) to be his "lady" — renaming her <strong>Dulcinea del Toboso</strong>. He gets on his old horse Rocinante and rides out to seek adventure!</p>
+                </div>
+                
+                <div class="plot-part rising">
+                    <div class="plot-title">⬆️ RISING ACTION (5+ Conflicts)</div>
+                    <ul class="conflict-list">
+                        <li><strong>Conflict 1 — The Inn "Castle":</strong> He stops at an inn thinking it's a castle and demands the innkeeper knight him. The innkeeper plays along and "dubs" him a knight just to get rid of him.</li>
+                        
+                        <li><strong>Conflict 2 — The Windmills:</strong> THE MOST FAMOUS SCENE! Don Quixote sees windmills and believes they are <span class="highlight">GIANTS</span> terrorizing the countryside. He charges at them with his lance and gets absolutely DESTROYED — thrown off his horse and badly beaten.</li>
+                        
+                        <li><strong>Conflict 3 — The Flock of Sheep:</strong> He sees two dust clouds from sheep flocks and thinks they are TWO ENEMY ARMIES. He attacks the sheep and the shepherds beat him up badly.</li>
+                        
+                        <li><strong>Conflict 4 — The Prisoners:</strong> He encounters a chain gang of prisoners being sent to the galleys. Believing they're innocent victims of evil enchanters, he frees them. They immediately ROB him and run away. Oops.</li>
+                        
+                        <li><strong>Conflict 5 — The Barber's Basin:</strong> He sees a barber wearing a brass basin on his head to protect from rain. Don Quixote attacks him and steals the "helmet" — calling it <strong>Mambrino's Helmet</strong>, a legendary artifact.</li>
+                        
+                        <li><strong>Conflict 6 — The Sierra Morena:</strong> After more beatings, Don Quixote hides in the mountains and does "penance" for Dulcinea — rolling around naked and beating himself with rocks. His friends (the priest and barber) come to rescue him.</li>
+                        
+                        <li><strong>Conflict 7 — The Fake Princess:</strong> His friends trick him into returning home by having a woman named Dorotea pretend to be Princess Micomicona, who "needs" his help. They put him in a CAGE on an ox cart and haul him home.</li>
+                    </ul>
+                    <p style="text-align: center; font-weight: bold; color: #cc9900;">...10 years pass, Part 2 begins...</p>
+                    <ul class="conflict-list">
+                        <li><strong>Conflict 8 — The Duke & Duchess:</strong> Now FAMOUS from the published book, Don Quixote and Sancho are invited by rich nobles who play CRUEL PRANKS on them for months — fake islands, flying horses, fake magical adventures.</li>
+                        
+                        <li><strong>Conflict 9 — Sancho the Governor:</strong> The Duke makes Sancho "governor" of a fake island (Barataria). Sancho turns out to be surprisingly wise and just! But the job is stressful and he quits after 10 days.</li>
+                    </ul>
+                </div>
+                
+                <div class="plot-part climax">
+                    <div class="plot-title">🔥 CLIMAX</div>
+                    <p><strong>The Duel with the Knight of the White Moon</strong></p>
+                    <p>In Barcelona, a mysterious knight challenges Don Quixote. The deal: if Don Quixote wins, he can kill the other knight. If he LOSES, he must <span class="highlight">abandon knight-errantry forever</span>. Don Quixote is DEFEATED in battle. The knight removes his helmet — it's <strong>Sansón Carrasco</strong>, a neighbor from home who has been trying to force Don Quixote to give up his madness. This is the moment everything falls apart. Don Quixote's identity as a knight is shattered.</p>
+                </div>
+                
+                <div class="plot-part falling">
+                    <div class="plot-title">⬇️ FALLING ACTION</div>
+                    <p>Defeated and humiliated, Don Quixote and Sancho begin the long journey home. Don Quixote considers becoming a SHEPHERD instead (because pastoral romances are a thing too). But he's not the same — he's depressed, tired, and broken. The magic is gone. He realizes his adventures were all in his head. Sancho tries to cheer him up, but nothing works.</p>
+                </div>
+                
+                <div class="plot-part resolution">
+                    <div class="plot-title">✅ RESOLUTION</div>
+                    <p>Back home, Don Quixote falls seriously ill with a fever. When he wakes up, he is <strong>completely sane again</strong>. He rejects all books of chivalry, calls them "nonsense," and reclaims his real name: <strong>Alonso Quixano the Good</strong>. He apologizes to everyone for his madness, makes his will, and dies peacefully the next day. Sancho is heartbroken. The man who dreamed of impossible adventures dies as the ordinary man he always was.</p>
+                    <div class="quote-box">
+                        "Too much sanity may be madness — and the maddest of all, to see life as it is and not as it should be."<br>
+                        — Man of La Mancha (musical adaptation)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="timeline">
+            <h2>⏱️ FULL TIMELINE</h2>
+            <p>Every major event in order:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>PART 1 (1605)</strong>
+                </div>
+                <div class="timeline-item">
+                    <strong>Sells belongings for books</strong> — Alonso Quixano becomes obsessed with chivalric romances
+                </div>
+                <div class="timeline-item">
+                    <strong>Loses grip on reality</strong> — Reads so much he thinks he's a knight
+                </div>
+                <div class="timeline-item">
+                    <strong>Declares himself knight-errant</strong> — Becomes "Don Quixote de la Mancha"
+                </div>
+                <div class="timeline-item">
+                    <strong>First ride & self-knighting at inn</strong> — The innkeeper "dubs" him
+                </div>
+                <div class="timeline-item">
+                    <strong>Fights muleteers, gets beaten</strong> — First battle, first loss
+                </div>
+                <div class="timeline-item">
+                    <strong>Returns home injured</strong> — Brought back by neighbors
+                </div>
+                <div class="timeline-item">
+                    <strong>Second journey begins</strong> — He's back and more determined
+                </div>
+                <div class="timeline-item">
+                    <strong>Recruits Sancho Panza as squire</strong> — Promises him an island governorship
+                </div>
+                <div class="timeline-item">
+                    <strong>Windmills "giants" battle</strong> — THE FAMOUS SCENE! Gets destroyed
+                </div>
+                <div class="timeline-item">
+                    <strong>Friars attacked, woman "rescued"</strong> — Attacks monks, scares a lady
+                </div>
+                <div class="timeline-item">
+                    <strong>Biscayan squire duel</strong> — Fights a Basque guy
+                </div>
+                <div class="timeline-item">
+                    <strong>Meets goatherds, pastoral tales</strong> — Hears stories about love and nature
+                </div>
+                <div class="timeline-item">
+                    <strong>Marcela and Grisóstomo episode</strong> — A woman rejects a man who dies of a broken heart
+                </div>
+                <div class="timeline-item">
+                    <strong>Funeral speech on love/freedom</strong> — Marcela defends her right to say no
+                </div>
+                <div class="timeline-item">
+                    <strong>Sheep mistaken for armies</strong> — Attacks sheep, gets beaten by shepherds
+                </div>
+                <div class="timeline-item">
+                    <strong>Mambrino's helmet (barber's basin)</strong> — Steals a basin thinking it's magic
+                </div>
+                <div class="timeline-item">
+                    <strong>Frees chain gang prisoners</strong> — They rob him immediately
+                </div>
+                <div class="timeline-item">
+                    <strong>Hides in Sierra Morena</strong> — Does crazy penance for Dulcinea
+                </div>
+                <div class="timeline-item">
+                    <strong>Priest/barber plan rescue</strong> — Friends try to save him from himself
+                </div>
+                <div class="timeline-item">
+                    <strong>Dorotea plays princess role</strong> — Fake princess tricks him
+                </div>
+                <div class="timeline-item">
+                    <strong>Travels back in cage</strong> — Captured and hauled home
+                </div>
+                <div class="timeline-item">
+                    <strong>Returns home again</strong> — Part 1 ends
+                </div>
+                
+                <div class="timeline-item" style="background: #ffe6e6; border-left-color: #cc0000;">
+                    <strong>PART 2 (1615)</strong>
+                </div>
+                <div class="timeline-item">
+                    <strong>Famous from published book</strong> — Everyone has read Part 1!
+                </div>
+                <div class="timeline-item">
+                    <strong>Sets out for new adventures</strong> — Can't stay retired
+                </div>
+                <div class="timeline-item">
+                    <strong>Meets Sansón Carrasco</strong> — A young scholar who knows his story
+                </div>
+                <div class="timeline-item">
+                    <strong>Dulcinea "enchanted" deception</strong> — Sancho lies and says a peasant girl is enchanted Dulcinea
+                </div>
+                <div class="timeline-item">
+                    <strong>Wagon actors "devils" attack</strong> — Attacks a cart of performers
+                </div>
+                <div class="timeline-item">
+                    <strong>Lion encounter (refuses to fight)</strong> — The lion is too lazy to fight back
+                </div>
+                <div class="timeline-item">
+                    <strong>Knight of Mirrors duel (wins)</strong> — Defeats Carrasco in disguise
+                </div>
+                <div class="timeline-item">
+                    <strong>Visits Duke and Duchess</strong> — Rich people who read the book and want to mess with him
+                </div>
+                <div class="timeline-item">
+                    <strong>Nobles stage elaborate pranks</strong> — Months of cruel jokes and fake magic
+                </div>
+                <div class="timeline-item">
+                    <strong>Sancho governs fake island</strong> — Barataria Island governorship
+                </div>
+                <div class="timeline-item">
+                    <strong>Clavileño flying horse hoax</strong> — They pretend to fly on a wooden horse
+                </div>
+                <div class="timeline-item">
+                    <strong>Altisidora fake love drama</strong> — A maid pretends to be in love with him
+                </div>
+                <div class="timeline-item">
+                    <strong>Endless humiliations and tricks</strong> — The nobles never stop
+                </div>
+                <div class="timeline-item">
+                    <strong>Sancho quits governorship</strong> — Too much stress, returns to Don Quixote
+                </div>
+                <div class="timeline-item">
+                    <strong>Leaves noble estate</strong> — Finally gets away from the pranks
+                </div>
+                <div class="timeline-item" style="background: #ffcccc; border-left-color: #cc0000; font-weight: bold;">
+                    <strong>Knight of White Moon duel</strong> — DEFEATED! Must abandon knighthood
+                </div>
+                <div class="timeline-item">
+                    <strong>Defeated by disguised Carrasco</strong> — Same guy from before
+                </div>
+                <div class="timeline-item">
+                    <strong>Forced to abandon knighthood</strong> — The promise he made
+                </div>
+                <div class="timeline-item">
+                    <strong>Returns home defeated</strong> — Broken and sad
+                </div>
+                <div class="timeline-item">
+                    <strong>Falls ill, regains sanity</strong> — The fever cures his madness
+                </div>
+                <div class="timeline-item">
+                    <strong>Rejects knight-errantry</strong> — "Those books are trash!"
+                </div>
+                <div class="timeline-item" style="background: #ccccff; border-left-color: #6600cc;">
+                    <strong>Dies as Alonso Quixano</strong> — The dream is over. RIP.
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="themes">
+            <h2>🧠 DEEPER THEMES</h2>
+            <p>What this book is REALLY about:</p>
+            
+            <h3 style="color: #cc3300;">Reality vs. Imagination</h3>
+            <p>Don Quixote sees the world through the lens of his books. Windmills = giants. Inns = castles. Peasant girls = princesses. But Cervantes doesn't just mock him — he asks: <em>Is it better to see the world as it is, or as it could be?</em> Sancho represents reality; Don Quixote represents imagination. You need both to survive.</p>
+            
+            <h3 style="color: #cc3300;">Madness & Sanity</h3>
+            <p>Is Don Quixote crazy, or is he the only HONEST person in a corrupt world? The "sane" people — the Duke and Duchess — are cruel and bored. The "madman" is kind, brave, and idealistic. The book asks: who is REALLY crazy here?</p>
+            
+            <h3 style="color: #cc3300;">The Death of Chivalry</h3>
+            <p>The book was written as chivalric romances were going out of style. Don Quixote is trying to revive a dead era. His failure represents the end of the Middle Ages and the beginning of the modern world. It's sad but necessary.</p>
+            
+            <h3 style="color: #cc3300;">Class & Intelligence</h3>
+            <p>Sancho is a poor, uneducated farmer. But he's often the smartest person in the room. The rich Duke and Duchess are malicious idiots. Cervantes was revolutionary for saying: <strong>your worth isn't determined by your birth.</strong></p>
+            
+            <div class="fun-fact">
+                This book invented the modern novel! Before Don Quixote, stories were either epic poems, plays, or short tales. Cervantes created the idea of a long, character-driven story with a complex narrator. Every novel you've ever read owes something to this book.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎬 MODERN CONNECTIONS</h2>
+            <ul style="font-size: 16px;">
+                <li><strong>The musical "Man of La Mancha"</strong> — Famous song "The Impossible Dream"</li>
+                <li><strong>The word "Quixotic"</strong> — Means idealistic but impractical</li>
+                <li><strong>Star Trek's Captain Picard</strong> — Called Don Quixote multiple times</li>
+                <li><strong>The video game Dark Souls</strong> — Has a character clearly inspired by our knight</li>
+                <li><strong>Pixar's WALL-E</strong> — A lonely romantic in a world that forgot romance</li>
+                <li><strong>Every "crazy dreamer" character ever</strong> — From Forrest Gump to Mr. Bean</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Made with 💛 for literature nerds everywhere</p>
+            <p>"Finally, from so little sleeping and so much reading, his brain dried up and he went completely out of his mind."</p>
+            <p style="font-size: 12px; margin-top: 10px;">© Miguel de Cervantes Saavedra (1547-1616) — Dude was a soldier, a slave, a tax collector, AND wrote the best book ever. Legend.</p>
+        </footer>
+    </div>
+</body>
+</html>
